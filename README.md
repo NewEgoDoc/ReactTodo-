@@ -11,19 +11,91 @@ HTML에서 각각의 DOM을 제어하고 구성을 하게 되면 JavaScript에�
 
 하지만 React의 경우 조금 다른 사상아래 개발이 되었는데. 그것은 Virtual DOM이라고 하는 특이한 개념이다.
 
-### *****Virtual DOM
+### `- Virtual DOM`
 
 
 ## 2.JSX
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+JSX가 Javascript로 제대로 변환이 되려면 필요한 몇가지 규칙이 있다.
 
-### `yarn test`
+**꼭 닫혀야한다**
 
-Launches the test runner in the interactive watch mode.\
+기본 HTML의 문법과 비슷해보이지만 차이점이 있다.`<div></div>`과 같은 당연히 닫혀야 되는 태그들은 실수가 없겠지만 `<input>` 또는 `<br>` 태그를 사용할 때 닫지 않고 사용하면 안된다는 뜻이다.
+
+**그러므로 항상 감싸져야한다.**
+
+이렇게 단순히 감싸기 위하여 불필요한 div로 감싸는게 별로 좋지 않을 수 있다. 스타일 관련 설정을 하다가 복잡해지는 상황이 올수 있기 때문에 *Fragment*를 사용하자
+
+```html
+import React from 'react';
+import Hello from './Hello';
+
+function App() {
+  return (
+    <>
+      <Hello />
+      <div>안녕히계세요</div>
+    </>
+  );
+}
+
+export default App;
+```
+
+
+
+<!-- Line -->
+___
+
+<!-- Text attributes -->
+Builds the **app** for production to the `build` folder.\
+It correctly bundles *React* in production mode and ~~optimizes~~ the build for the best performance.
+<!-- Quote -->
+>The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
+<!-- Bullet list -->
+목록만들기:
+* 목록1
+* 목록2
+
+목록만들기2:
+- 목
+- 록
+
+<!-- Link -->
+
+Click [here](https://www.naver.com)
+
+<!-- Image -->
+
+![image description](https://img.freepik.com/free-vector/big-data-circular-grayscale-visualization-futuristic-infographic-information-aesthetic-design-visual-data-complexity-complex-data-threads-graphic-visualization-social-network-abstract-data-graph_1217-2125.jpg?size=338&ext=jpg&ga=GA1.2.1623233742.1618531200)
+
+<!-- Table -->
+
+| Col1 | Col2 | Col3|
+|--:|:--|:--:|
+|C1|C2|C3|
+|C1|C2|C3|
+|C1|C2|C3|
+|C1|C2|C3|
+
+<!--Code-->
+To print message in the console, use `console.log('your message')` and ..
+
+
+```js
+console.log('come cmoe')
+```
+
+
+
+
+
+
+
+
+
+the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
 ### `yarn build`

@@ -1,13 +1,9 @@
-import React from 'react'
-import Hello from './Hello'
-import './App.css';
-import Wrapper from './Wrapper'
+import React from 'react';
+import Hello from './Hello';
+
 function App() {
   return (
-    <Wrapper>
-      <Hello name="react"/>
-      <Hello name="juhan" color="purple"/>
-    </Wrapper>
+    <Hello name="react" />
   );
 }
 
