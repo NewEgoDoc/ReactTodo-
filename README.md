@@ -1,9 +1,9 @@
-# 리액트 입문
+# **리액트 입문**
 
 기본적으로 back end 공부만 해오던 차에 나에게도 기본적인 javascript에 대한 지식이 필요해졌고 그리고 어떤 템플릿만 만들어두게 된다면 다양하게 사용할수 있고 front end의 기본이라 할수 있는 하지만 결코 만만하지 않은 내용인 react library에 대해 학습해보고 조금이나마 적용할수 있기 위해 정리하려 한다.
 
 
-## 1. 리액트 필요성
+## `1. 리액트 필요성`
 
 HTML에서 각각의 DOM을 제어하고 구성을 하게 되면 JavaScript에서 querySelector와 getElementbySth 과 같은 문법을 자주 접하게 된다. 이들은 개발자들이 각각의 Node에 쉽게 접근할 수 있게 해주지만 너무 많은 Event들과 맞물려 제어를 하게 되면 굉장히 복잡한 구조를 맛(?)볼수 있다.
 
@@ -11,10 +11,10 @@ HTML에서 각각의 DOM을 제어하고 구성을 하게 되면 JavaScript에�
 
 하지만 React의 경우 조금 다른 사상아래 개발이 되었는데. 그것은 Virtual DOM이라고 하는 특이한 개념이다.
 
-### `- Virtual DOM`
+### **- Virtual DOM**
 
 
-## 2.JSX
+## `2.JSX`
 
 JSX가 Javascript로 제대로 변환이 되려면 필요한 몇가지 규칙이 있다.
 
@@ -42,8 +42,17 @@ function App() {
 export default App;
 ```
 
+**style과 className**
+
+JSX에서 태그에 style 과 CSS class를 설정하는 방법은 HTML에서 설정하는 방법과 아주작은 차이가 있다. 그것은 class 키워드 때문에 생겨난 것인데 class 해당내용에서 말그대로 class변수로서 사용되기때문에 우리는 className 이라는 속성을 사용하여 css를 지정해 줄 수 있으며 background-Color 같은 구분자보다 CamelCase 형태로 네이밍 해주어야한다.
 
 
+**주석**
+
+주석은`{/* 이런 형식으로 */}` 추가해준다.
+
+
+## `3.Props`
 <!-- Line -->
 ___
 

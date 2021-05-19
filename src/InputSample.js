@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 
 function InputStream(){
 
@@ -6,6 +6,8 @@ function InputStream(){
         myName : '',
         myCom : ''
     });
+
+    const nameInput = useRef();
 
     const {myName, myCom} = inputs;
 
@@ -22,11 +24,12 @@ function InputStream(){
             myName:'',
             myCom:'',
         });
+        nameInput.current.focus();
     };
 
     return (
         <div>
-            <input name="myName" placeholder='이름' value = {myName} onChange = {onChange}/>
+            <input name="myName" placeholder='이름' value = {myName} onChange = {onChange} ref={ nameInput }/>
             <input name="myCom" placeholder='회사' value = {myCom} onChange = {onChange}/>
             <button onClick={onReset}>초기화</button>
             <div>
