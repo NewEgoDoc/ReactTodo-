@@ -39,12 +39,14 @@ function reducer(state, action) {
       };
     case 'TOGGLE_USER':
       return {
+        ...state,
         users: state.users.map(user =>
           user.id === action.id ? { ...user, active: !user.active } : user
         )
       };
     case 'REMOVE_USER':
       return {
+        ...state,
         users: state.users.filter(user => user.id !== action.id)
       };
     default:
@@ -52,8 +54,11 @@ function reducer(state, action) {
   }
 }
 
+// UserDispatch 라는 이름으로 내보내줍니다.
+export const UserDispatch = React.createContext(null);
+
 function App() {
-  const [{ username, email }, onChange, reset] = useInputs({
+  const [{ username, email }, onChange, onReset] = useInputs({
     username: '',
     email: ''
   });
@@ -71,9 +76,9 @@ function App() {
         email
       }
     });
-    reset();
+    onReset();
     nextId.current += 1;
-  }, [username, email, reset]);
+  }, [username, email, onReset]);
 
   const onToggle = useCallback(id => {
     dispatch({
@@ -91,7 +96,7 @@ function App() {
 
   const count = useMemo(() => countActiveUsers(users), [users]);
   return (
-    <>
+    <UserDispatch.Provider value={dispatch}>
       <CreateUser
         username={username}
         email={email}
@@ -100,7 +105,7 @@ function App() {
       />
       <UserList users={users} onToggle={onToggle} onRemove={onRemove} />
       <div>활성사용자 수 : {count}</div>
-    </>
+    </UserDispatch.Provider>
   );
 }
 
